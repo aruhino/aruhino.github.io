@@ -1,0 +1,151 @@
+/* ==========================================
+   見た目の設定はここだけ。
+   色を変えたいときは :root の中を触ればOK
+   ========================================== */
+
+:root {
+  --bg: #faf8f5;        /* 背景 */
+  --text: #2b2b2b;      /* 本文の文字色 */
+  --muted: #8a857d;     /* 日付など控えめな文字 */
+  --accent: #c2553b;    /* アクセント色(リンクなど) */
+  --line: #e6e1d9;      /* 区切り線・枠線 */
+  --card: #ffffff;      /* カードの背景 */
+}
+
+/* ダークモード(OSの設定に合わせて自動で切り替わる) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1b19;
+    --text: #e8e4dc;
+    --muted: #8f8a80;
+    --accent: #e8836a;
+    --line: #333029;
+    --card: #25231f;
+  }
+}
+
+/* ---------- 全体 ---------- */
+* { box-sizing: border-box; }
+
+body {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.25em;
+}
+
+/* ---------- ヘッダー ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav a {
+  margin-left: 1.25rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+nav a:hover,
+nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+/* ---------- 見出し・本文 ---------- */
+h1 {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 3rem 0 1rem;
+}
+
+.lead {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-top: 0;
+}
+
+/* ---------- リスト(ブログ・メモ共通) ---------- */
+.entry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.entry-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry-list time {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.entry-list a {
+  font-weight: bold;
+  text-decoration: none;
+}
+.entry-list a:hover { text-decoration: underline; }
+
+/* ---------- メモのカード ---------- */
+.memo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.memo {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+}
+
+.memo h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.memo p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ---------- フッター ---------- */
+footer {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
