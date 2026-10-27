@@ -149,3 +149,10 @@ footer {
   color: var(--muted);
   font-size: 0.85rem;
 }
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;           /* 画像の縦横比のまま表示する */
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
